@@ -166,16 +166,22 @@
                             <a class="dropdown-item" href="#"><i class="ft-mail"></i> My Inbox</a>
                             <a class="dropdown-item" href="#"><i class="ft-check-square"></i> Task</a>
                             <a class="dropdown-item" href="#"><i class="ft-message-square"></i> Chats</a>
-                            <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="ft-power"></i> Logout</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{route('dashboard.logout')}}">
+                                <i class="ft-power"></i> Logout</a>
                         </div>
                     </li>
 
-                    <li class="dropdown dropdown-language nav-item"><a class="dropdown-toggle nav-link" id="dropdown-flag" href="#" data-toggle="dropdown"
-                                                                       aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-gb"></i><span class="selected-language"></span></a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown-flag">
+                    <li class="dropdown dropdown-language nav-item">
+                        <a class="dropdown-toggle nav-link" id="dropdown-flag" href="#" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <i class="flag-icon @if(LaravelLocalization::getCurrentLocale() == 'en') flag-icon-gb @else  flag-icon-eg @endif"></i>
+                            <span class="selected-language"></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-flag">
                             @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                                 <a rel="alternate" class="dropdown-item" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                <i class="flag-icon @if($localeCode == 'en') flag-icon-gb @else  flag-icon-eg @endif"></i> {{ $properties['native'] }}
+                                    <i class="flag-icon @if($localeCode == 'en') flag-icon-gb @else  flag-icon-eg @endif"></i> {{ $properties['native'] }}
                                 </a>
                             @endforeach
                         </div>
