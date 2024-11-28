@@ -30,7 +30,8 @@
                                         <form class="form-horizontal" action="{{route('dashboard.resetPassword')}}"
                                               method="post">
                                             @csrf
-                                            <input type="hidden" name="email" value="{{$email}}">
+                                             <input type="hidden" name="email" value="{{$email}}">
+                                             <input type="hidden" name="token" value="{{$token}}">
                                             <fieldset class="form-group position-relative has-icon-left">
                                                 <input type="password" class="form-control form-control-lg input-lg"
                                                        id="user-email"

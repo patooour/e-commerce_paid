@@ -27,22 +27,25 @@ class ForgetPasswordController extends Controller
 
     public function sendMail(ForgetPasswordRequest $request){
         $admin = $this->passwordService->getAdminByEmail($request->email);
+        $admin->notify(new SendOtpNotify());
         if (!$admin) {  return redirect()->back()->withErrors(['error'=>'admin was not found']);  }
         return redirect()->route('dashboard.verifyOtp',$admin->email);
     }
 
     public function verifyOtp($email)
     {
-        return view('dashboard.auth.forgetPassword.verify', compact('email'));
+        $admin = $this->passwordService->getAdminByEmail($email);
+        $token = $admin->token;
+        return view('dashboard.auth.forgetPassword.verify',
+            compact('email', 'token'));
     }
 
     public function verifyOtpEmail(ForgetPasswordRequest $request){
-
         $otp2 = $this->passwordService->verifyOtpEmail($request->email , $request->otp);
         if (!$otp2){
             return redirect()->back()->withErrors(['error' =>'code is invalid']);
         }
-        return redirect()->route('dashboard.getResetPassword',$request->email);
+        return redirect()->route('dashboard.getResetPassword',[$request->email]);
 
 
     }

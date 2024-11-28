@@ -21,13 +21,14 @@ class ResetPasswordController extends Controller
     }
 
     public function getResetPassword($email){
-
-        return view('dashboard.auth.forgetPassword.reset', compact('email'));
+        $admin = $this->passwordService->getAdminByEmail($email);
+        $token = $admin->token;
+        return view('dashboard.auth.forgetPassword.reset', compact('email','token'));
     }
     public function resetPassword(ResetPasswordRequest $request){
 
-        $admin = $this->passwordService->resetPassword($request->email , $request->password);
-        if (!$admin){
+        $admin = $this->passwordService->resetPassword($request->email , $request->password,$request->token);
+        if (!$admin) {
             return redirect()->back()->withErrors('error', 'try again later');
         }
         return redirect()->route('dashboard.login')->with('success', 'Password reset successfully');

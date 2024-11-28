@@ -5,6 +5,7 @@ namespace App\Services\Auth;
 use App\Models\Admin;
 use App\Notifications\dashboard\SendOtpNotify;
 use App\Repositories\Auth\PasswordRepository;
+use Illuminate\Support\Str;
 
 class PasswordService
 {
@@ -20,8 +21,8 @@ class PasswordService
         if (!$admin){
             return false;
         }
-
-        $admin->notify(new SendOtpNotify());
+        $admin->token = Str::random(64);
+        $admin->save();
         return $admin;
     }
 
@@ -30,9 +31,14 @@ class PasswordService
         $otp2 =  $this->passwordRepository->verifyOtpEmail($email , $otp);
         return $otp2->status;
     }
-    public function resetPassword($email , $password)
+    public function resetPassword($email , $password  ,$token)
     {
-        $admin =  $this->passwordRepository->resetPassword($email , $password);
+        $admin =  $this->passwordRepository->resetPassword($email , $password ,$token);
+        return $admin;
+    }
+    public function getAdminByEmailAndToken($email , $token)
+    {
+        $admin =  $this->passwordRepository->getAdminByEmailAndToken($email , $token);
         return $admin;
     }
 }

@@ -33,6 +33,7 @@
                                             @csrf
                                             <fieldset class="form-group position-relative has-icon-left">
                                                 <input type="hidden" name="email" value="{{$email}}">
+                                                <input type="hidden" name="token" value="{{$token}}">
 
                                                 <input type="text" class="form-control form-control-lg input-lg"
 

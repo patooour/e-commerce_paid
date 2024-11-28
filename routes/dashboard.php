@@ -4,6 +4,7 @@ use App\Http\Controllers\Dashboard\Auth\forgetPassword\ForgetPasswordController;
 use App\Http\Controllers\Dashboard\Auth\forgetPassword\ResetPasswordController;
 use App\Http\Controllers\Dashboard\Auth\LoginController;
 use App\Http\Controllers\dashboard\Home\HomeController;
+use App\Http\Controllers\Dashboard\Home\RoleController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -36,6 +37,13 @@ Route::group(
             ############################## Home page ############################################
             Route::group(['middleware' => 'auth:admin'], function(){
                 Route::get('home' ,[HomeController::class, 'getHomePage'])->name('home');
+
+                ############################## Role permission  ############################################
+                Route::group(['middleware'=>'can:roles'], function (){
+                    Route::resource('roles' ,RoleController::class);
+                });
+                ############################## end Role permission  ############################################
+
 
             });
              ############################## end home page ########################################

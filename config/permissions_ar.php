@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'categories' => 'ادارة الاصناف ',
+    'products' => 'ادارة المنتجات ',
+    'brands' => "ادارة البرندات ",
+    'coupons' => 'ادارة الكوبونات ',
+    'orders' => 'ادارة الاوردرات ',
+    'users' => 'ادارة العملاء ',
+    'roles' => 'ادارة الصلاحيات',
+    'settings' => 'ادارة الاعدادات',
+    'reports' => 'ادارة الريبورتات',
+    'dashboard' => 'ادارة الداشبورد',
+    'profile' => 'ادارة البروفايل',
+    'home' => 'ادارة الرئيسية',
+    'contact' => 'ادارة التواصل',
+    'about' => 'ادارة المعلومات',
+    'blog' => 'Manage Blog',
+    'newsletters' => 'Manage Newsletters',
+    'banners' => 'Manage Banners',
+    'pages' => 'ادارة الصفحات',
+    'sliders' => 'ادارة سلايدرز',
+    'faqs' => 'Manage FAQs',
+    'socials' => 'ادارة التواصل الاجتماعي',
+    'menus' => 'ادارة منيوز',
+    'comments' => 'ادارة التعليقات',
+];

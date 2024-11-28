@@ -189,6 +189,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'role.ar' => 'role is required'
+    ],
 
 ];

@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Requests\dashboard\auth;
+namespace App\Http\Requests\dashboard\home;
 
+use CodeZero\UniqueTranslation\UniqueTranslationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ResetPasswordRequest extends FormRequest
+class RoleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return True;
     }
 
     /**
@@ -22,9 +23,9 @@ class ResetPasswordRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|string|email|exists:Admins,email',
-            'password' => 'required|min:6|confirmed',
-            'token' => 'required|min:30|exists:admins,token',
+            'role.*'=>['required','string','max:100' ,
+                UniqueTranslationRule::for('roles')->ignore($this->id) ],
+            'permissions'=>'required|array|min:1',
         ];
     }
 }

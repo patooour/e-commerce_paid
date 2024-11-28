@@ -41,6 +41,22 @@
                 <span data-i18n="nav.category.layouts">Layouts</span><i class="la la-ellipsis-h ft-minus" data-toggle="tooltip"
                                                                         data-placement="right" data-original-title="Layouts"></i>
             </li>
+
+            {{--start Roles--}}
+            @can('roles')
+            <li class=" nav-item"><a href="#"><i class="la la-columns"></i>
+                    <span class="menu-title" data-i18n="nav.page_layouts.main">Roles</span>
+                    <span class="badge badge badge-pill badge-danger float-right mr-2">New</span></a>
+                <ul class="menu-content">
+                    <li><a class="menu-item" href="{{route('dashboard.roles.index')}}" data-i18n="nav.page_layouts.1_column">Roles</a>
+                    </li>
+                    <li><a class="menu-item" href="{{route('dashboard.roles.create')}}" data-i18n="nav.page_layouts.2_columns">Create Role</a>
+                    </li>
+
+                </ul>
+            </li>
+            @endcan
+            {{--end Roles--}}
             <li class=" nav-item"><a href="#"><i class="la la-columns"></i><span class="menu-title" data-i18n="nav.page_layouts.main">Page layouts</span><span class="badge badge badge-pill badge-danger float-right mr-2">New</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="layout-1-column.html" data-i18n="nav.page_layouts.1_column">1 column</a>

@@ -4,6 +4,7 @@ namespace App\Repositories\Auth;
 
 use App\Models\Admin;
 use Ichtrojan\Otp\Otp;
+use Illuminate\Support\Str;
 
 class PasswordRepository
 {
@@ -17,20 +18,25 @@ class PasswordRepository
     {
         $admin = Admin::whereEmail($email)->first();
         return $admin;
-
     }
 
-    public function verifyOtpEmail($email , $otp)
+    public function verifyOtpEmail($email , $otp )
     {
+        $admin = self::getAdminByEmail($email);
         $otp2 = $this->otp->validate($email , $otp);
         return $otp2;
     }
-    public function resetPassword($email , $password)
+    public function resetPassword($email , $password,$token )
     {
-        $admin = self::getAdminByEmail($email);
-        $admin = $admin->update([
-            'password'=>bcrypt($password)
-        ]);
+        $admin = self::getAdminByEmailAndToken($email ,$token);
+        $admin->password = bcrypt($password);
+        $admin->token  = null;
+        $admin->save();
+        return $admin;
+    }
+    public function getAdminByEmailAndToken($email,$token)
+    {
+        $admin = Admin::whereEmail($email)->whereToken($token)->first();
         return $admin;
     }
 }
