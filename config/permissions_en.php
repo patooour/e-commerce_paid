@@ -24,4 +24,5 @@ return [
     'socials' => 'Manage Socials',
     'menus' => 'Manage Menus',
     'comments' => 'Manage Comments',
+    'admins' => 'Manage Admins',
 ];

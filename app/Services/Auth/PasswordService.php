@@ -34,6 +34,9 @@ class PasswordService
     public function resetPassword($email , $password  ,$token)
     {
         $admin =  $this->passwordRepository->resetPassword($email , $password ,$token);
+        if (!$admin){
+            return false;
+        }
         return $admin;
     }
     public function getAdminByEmailAndToken($email , $token)

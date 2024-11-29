@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('token')->nullable();
+            $table->boolean('status')->default(1);
 
             $table->string('image')->nullable();
             $table->unsignedBigInteger('role_id')->nullable();

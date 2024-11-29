@@ -14,5 +14,11 @@ return [
     */
 
     'Manage Brands'   => 'ادارة البرندات',
+    'admins'   => 'المسؤليين',
+    'create admin'   => 'انشاء مسؤول',
+
+    'errors'=>[
+        'admin not found'=> 'admin not found'
+    ]
 
 ];

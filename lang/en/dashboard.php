@@ -14,4 +14,11 @@ return [
     */
 
     'Manage Brands'   => 'Manage Brands',
+    'admins'   => 'admins',
+    'create admin'   => 'Create Admin',
+
+    'errors'=>[
+        'admin not found'=> 'admin not found'
+    ]
+
 ];

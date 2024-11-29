@@ -3,6 +3,7 @@
 use App\Http\Controllers\Dashboard\Auth\forgetPassword\ForgetPasswordController;
 use App\Http\Controllers\Dashboard\Auth\forgetPassword\ResetPasswordController;
 use App\Http\Controllers\Dashboard\Auth\LoginController;
+use App\Http\Controllers\Dashboard\Home\AdminController;
 use App\Http\Controllers\dashboard\Home\HomeController;
 use App\Http\Controllers\Dashboard\Home\RoleController;
 use Illuminate\Support\Facades\Route;
@@ -38,12 +39,22 @@ Route::group(
             Route::group(['middleware' => 'auth:admin'], function(){
                 Route::get('home' ,[HomeController::class, 'getHomePage'])->name('home');
 
+
                 ############################## Role permission  ############################################
                 Route::group(['middleware'=>'can:roles'], function (){
                     Route::resource('roles' ,RoleController::class);
                 });
                 ############################## end Role permission  ############################################
 
+
+                ############################## Admins Management  ############################################
+                Route::group(['middleware'=>'can:admins'], function (){
+                    Route::resource('admins' ,AdminController::class);
+                    Route::get('admins/{id}/status' ,[AdminController::class,'changeStatus'])->name('admins.status');
+                    Route::post('admins/search' ,[AdminController::class,'search'])->name('admins.search');
+
+                });
+                ############################## end Admins Management  ############################################
 
             });
              ############################## end home page ########################################

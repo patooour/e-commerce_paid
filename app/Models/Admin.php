@@ -18,9 +18,10 @@ class Admin extends Authenticatable
         'password',
         'image',
         'role_id',
+        'status',
+        'token',
         'remember_token',
-        'created_at',
-        'updated_at'
+
     ];
     protected $timestamp = true;
 
@@ -58,4 +59,10 @@ class Admin extends Authenticatable
             }
         }
     }
+
+    public function getStatusAttribute($value)
+    {
+        return $value == 1 ? 'Active' : 'Inactive';
+    }
+
 }

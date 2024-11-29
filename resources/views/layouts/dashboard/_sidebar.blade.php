@@ -42,6 +42,22 @@
                                                                         data-placement="right" data-original-title="Layouts"></i>
             </li>
 
+            {{--start admins--}}
+            @can('admins')
+                <li class=" nav-item"><a href="#"><i class="la la-columns"></i>
+                        <span class="menu-title" data-i18n="nav.page_layouts.main">{{__('dashboard.admins')}}</span>
+                    </a>
+                    <ul class="menu-content">
+                        <li><a class="menu-item" href="{{route('dashboard.admins.index')}}" data-i18n="nav.page_layouts.1_column">{{__('dashboard.admins')}}</a>
+                        </li>
+                        <li><a class="menu-item" href="{{route('dashboard.admins.create')}}" data-i18n="nav.page_layouts.2_columns">{{__('dashboard.create admin')}}</a>
+                        </li>
+
+                    </ul>
+                </li>
+            @endcan
+            {{--end admins--}}
+
             {{--start Roles--}}
             @can('roles')
             <li class=" nav-item"><a href="#"><i class="la la-columns"></i>
