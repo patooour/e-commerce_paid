@@ -21,6 +21,8 @@
 <!-- END MODERN JS-->
 <!-- BEGIN PAGE LEVEL JS-->
 
+
+
 <script src="{{asset("assets") }}/js/scripts/pages/dashboard-sales.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL JS-->
 @stack('js')

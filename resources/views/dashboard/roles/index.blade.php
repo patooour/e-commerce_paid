@@ -52,8 +52,12 @@
                                     <h4 class="card-title">{{__('roles.permissions')}}</h4>
 
                                     {{--start modal--}}
-                                    <a href="" class="btn btn-primary mt-2 " data-toggle="modal"
-                                       data-target="#iconModal">{{__('roles.add')}}</a>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <a href="" class="btn btn-primary mt-2 " data-toggle="modal"
+                                          data-target="#iconModal">{{__('roles.add')}}</a>
+                                   </div>
+                               </div>
 
                                     <div class="modal fade text-left" id="iconModal" tabindex="-1" role="dialog"
                                          aria-labelledby="myModalLabel2"
@@ -193,10 +197,15 @@
                                                         <a class="btn btn-sm btn-primary"
                                                            href="{{route('dashboard.roles.edit',$role->id)}}"
                                                            title="Role Edit"><i class="ft-edit"></i></a>
+
                                                         <a href="javascript:void(0)" onclick="if(confirm('do you want to delete Role')) {
-                                                    document.getElementById('destroy_role_{{$role->id}}').submit() } return false
-                                                    " class=" btn btn-sm btn-danger"><i class="ft-trash"></i>
+                                                            document.getElementById('destroy_role_{{$role->id}}').submit() } return false
+                                                            " class=" btn btn-sm btn-danger"><i class="ft-trash"></i>
                                                         </a>
+
+                                                     {{--   <a href="" id="role_delete" class=" btn btn-sm btn-danger"><i class="ft-trash"></i>
+                                                        </a>--}}
+
                                                     </td>
                                                     {{-- form for destroy --}}
                                                     <form action="{{route('dashboard.roles.destroy',$role->id)}}"
@@ -204,7 +213,7 @@
                                                         @csrf
                                                         @method('delete')
                                                     </form>
-                                                    {{-- end form for destroy --}}
+                                                    {{--   end form for destroy --}}
                                                 </tr>
 
                                             @endforeach
@@ -224,3 +233,29 @@
     </div>
 
 @endsection
+
+
+@push('js')
+   {{-- <script>
+        $(document).on('click' , '#search_value' ,function (e){
+            e.preventDefault();
+
+            var search_live = $(this).val();
+
+
+            $.ajax({
+                type:"post",
+                url: "{{route('dashboard.roles.search')}}",
+                data:{
+                    '_token': "{{csrf_token()}}",
+                    'search_live': search_live
+                },
+                success:function (data){
+
+                    $('.ajax_table').html(data)
+                },
+            })
+        })
+    </script>--}}
+@endpush
+

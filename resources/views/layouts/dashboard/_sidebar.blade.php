@@ -58,6 +58,22 @@
             @endcan
             {{--end admins--}}
 
+            {{--start countries--}}
+            @can('world')
+                <li class=" nav-item"><a href="#"><i class="la la-columns"></i>
+                        <span class="menu-title" data-i18n="nav.page_layouts.main">{{__('dashboard.world')}}</span>
+                    </a>
+                    <ul class="menu-content">
+                        <li>
+                            <a class="menu-item" href="{{route('dashboard.world.countries')}}" data-i18n="nav.page_layouts.1_column">{{__('dashboard.countries')}}</a>
+                        </li>
+
+
+                    </ul>
+                </li>
+@endcan
+            {{--end countries--}}
+
             {{--start Roles--}}
             @can('roles')
             <li class=" nav-item"><a href="#"><i class="la la-columns"></i>
@@ -73,6 +89,8 @@
             </li>
             @endcan
             {{--end Roles--}}
+
+
             <li class=" nav-item"><a href="#"><i class="la la-columns"></i><span class="menu-title" data-i18n="nav.page_layouts.main">Page layouts</span><span class="badge badge badge-pill badge-danger float-right mr-2">New</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="layout-1-column.html" data-i18n="nav.page_layouts.1_column">1 column</a>

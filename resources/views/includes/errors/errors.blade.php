@@ -4,6 +4,6 @@
             <button type="button" class="btn btn-lg  btn-outline-danger mb-2 btn-block" id="type-danger">
                 {{$error}}
             </button>
-          @endforeach
+        @endforeach
     </div>
 @endif

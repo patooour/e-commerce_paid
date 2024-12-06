@@ -12,10 +12,11 @@ class City extends Model
 
     public $translatable = ['name'];
     protected $table = 'cities';
-    protected $fillable = ['name','governorate_id'];
+    protected $fillable = ['name','governorate_id','is_active'];
 
-    public function country()
+    public function governorate()
     {
-        return $this->belongsTo(Country::class, 'country_id', 'id');
+        return $this->belongsTo(Governorate::class , 'governorate_id','id');
     }
+
 }

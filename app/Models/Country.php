@@ -12,5 +12,18 @@ class Country extends Model
 
     public $translatable = ['name'];
     protected $table = 'countries';
-    protected $fillable = ['name','is_active'];
+    protected $fillable = ['name','is_active','flag_code'];
+
+    public function governorates()
+    {
+        return $this->hasMany(Governorate::class , 'country_id','id');
+    }
+    /*public function getIsActiveAttribute($value)
+    {
+        return $value == 1 ? 'Active' : 'InActive';
+    }*/
+    public function users()
+    {
+        return $this->hasmany(User::class , 'country_id', 'id');
+    }
 }

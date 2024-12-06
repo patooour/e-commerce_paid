@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('mobile')->unique();
             $table->boolean('status')->default(1);
+            $table->unsignedBigInteger('country_id')->nullable();
             $table->unsignedBigInteger('city_id')->nullable();
             $table->string('image')->nullable();
             $table->timestamp('email_verified_at')->nullable();
@@ -25,6 +26,8 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('city_id')->references('id')->on('cities')
+            ->onDelete('cascade');
+            $table->foreign('country_id')->references('id')->on('countries')
             ->onDelete('cascade');
         });
 

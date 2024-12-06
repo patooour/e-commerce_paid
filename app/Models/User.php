@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'city_id',
+        'country_id',
     ];
 
     /**
@@ -45,4 +47,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class , 'country_id', 'id');
+    }
+
 }

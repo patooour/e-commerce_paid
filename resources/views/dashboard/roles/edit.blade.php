@@ -158,3 +158,22 @@
         </div>
     </div>
 @endsection
+
+
+@push('js')
+    <!-- BEGIN PAGE VENDOR JS-->
+    <script src="{{asset("assets")}}/vendors/js/forms/icheck/icheck.min.js" type="text/javascript"></script>
+    <script src="{{asset("assets")}}/vendors/js/forms/toggle/bootstrap-checkbox.min.js"
+            type="text/javascript"></script>
+    <script src="{{asset("assets")}}/vendors/js/forms/toggle/switchery.min.js" type="text/javascript"></script>
+    <script src="{{asset("assets")}}/vendors/js/forms/select/select2.full.min.js" type="text/javascript"></script>
+    <script src="{{asset("assets")}}/vendors/js/forms/spinner/jquery.bootstrap-touchspin.js"
+            type="text/javascript"></script>
+    <script src="{{asset("assets")}}/vendors/js/charts/jquery.sparkline.min.js" type="text/javascript"></script>
+    <!-- END PAGE VENDOR JS-->
+
+    <!-- BEGIN PAGE LEVEL JS-->
+    <script src="{{asset("assets")}}/js/scripts/tables/components/table-components.js"
+            type="text/javascript"></script>
+    <!-- END PAGE LEVEL JS-->
+@endpush

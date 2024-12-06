@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard\Auth\LoginController;
 use App\Http\Controllers\Dashboard\Home\AdminController;
 use App\Http\Controllers\dashboard\Home\HomeController;
 use App\Http\Controllers\Dashboard\Home\RoleController;
+use App\Http\Controllers\Dashboard\Home\WorldController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -55,6 +56,26 @@ Route::group(
 
                 });
                 ############################## end Admins Management  ############################################
+
+                ############################## Start World [country - city - governorate] Management  ############################################
+                Route::group(['middleware'=>'can:world'], function (){
+                    Route::controller( WorldController::class)->prefix('world')->as('world.')->group(function (){
+                        Route::get('/countries' ,'getAllCountries')->name('countries');
+                        Route::get('/status/{country_id}' ,'changeStatus')->name('countries.status');
+                        Route::post('countries/search' ,'search')->name('countries.search');
+                        Route::get('/{country_id}/governorate' ,'getAllGovernorates')->name('governorates');
+
+                        Route::group(['prefix'=>'governorates' , 'as'=>'governorates.'] , function (){
+                            Route::get('/change-status/{gov_id}' ,'changeStatusGov')->name('status');
+                            Route::post('/shipping-price' ,'changeShippingPrice')->name('shipping.change');
+                            Route::post('/search' ,'searchGov')->name('search');
+
+                        });
+
+                    });
+
+                });
+                ############################## end World [country - city - governorate] Management ############################################
 
             });
              ############################## end home page ########################################

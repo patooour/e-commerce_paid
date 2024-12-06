@@ -78,8 +78,16 @@ class RoleController extends Controller
     public function destroy(string $id)
     {
        $role = $this->roleService->destroyRole($id);
-        if (!$role){  return redirect()->back()->with(["error" => "this role belong to admin"]);  }
-        return redirect()->route('dashboard.roles.index')->with(["success" => "role deleted successfully"]);
+        if (!$role){  return response() ->json([
+            'status'=>404,
+            "msg" => "this role belong to admin",
+            'data'=>null
+        ]);  }
+        return response() ->json([
+            'status'=>200,
+            "msg" => "role deleted successfully",
+            'data'=>$role
+        ]);
 
 
     }

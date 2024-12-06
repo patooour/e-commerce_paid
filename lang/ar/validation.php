@@ -1,6 +1,17 @@
 <?php
 
 return [
+    /*
+    |--------------------------------------------------------------------------
+    | Validation Language Lines
+    |--------------------------------------------------------------------------
+    |
+    | The following language lines contain the default error messages used by
+    | the validator class. Some of these rules have multiple versions such
+    | as the size rules. Feel free to tweak each of these messages.
+    |
+    */
+
     'accepted'             => 'يجب قبول :attribute',
     'active_url'           => ':attribute لا يُمثّل رابطًا صحيحًا',
     'after'                => 'يجب على :attribute أن يكون تاريخًا لاحقًا للتاريخ :date.',
@@ -116,6 +127,9 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'g-recaptcha-response'=>[
+            'required' => 'يجب عليك التحقق من أنك لست روبوت',
+        ]
     ],
 
     /*
@@ -174,7 +188,11 @@ return [
         'terms'=>'الموافقه علي الشروط مطلوبه',
         'otp'=>'رمز التحقق',
         'method'=>'وسيله السحب',
-        'body'=>'المحتوى'
+        'body'=>'المحتوى',
+        'role.en'=>' اسم الترقيه ب الانجليزي',
+        'role.ar'=>'اسم الترقيه ب العربي   ',
+
     ],
+
 
 ];

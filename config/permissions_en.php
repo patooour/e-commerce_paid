@@ -25,4 +25,5 @@ return [
     'menus' => 'Manage Menus',
     'comments' => 'Manage Comments',
     'admins' => 'Manage Admins',
+    'world' => 'world',
 ];

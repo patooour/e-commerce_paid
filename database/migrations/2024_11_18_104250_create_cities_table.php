@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('governorate_id');
+            $table->boolean('is_active')->default(true);
+
             $table->foreign('governorate_id')->references('id')
                 ->on('governorates')->onDelete('cascade');
         });
