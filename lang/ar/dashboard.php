@@ -88,4 +88,10 @@ return [
     'select_shipping_price'=>'اختار سعر شحن',
     'change_price'=>' تغيير السعر',
 
+    'categories'=>'الاقسام',
+    'brands'=>'العلامات التجارية',
+    'create_category'=>'انشاء قسم',
+    'create_brand'=>'انشاء علامة تجارية ',
+
+    'Are you sure?'=>'هل انت متاكد؟'
 ];

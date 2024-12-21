@@ -52,22 +52,6 @@
                             <div class="card ">
                                 <div class="card-header ">
                                     <h4 class="card-title">{{__('dashboard.Governorates')}}</h4>
-
-                                    <div class="row">
-                                     {{--   start modal
-                                        <div class="col-md-6">
-                                            <a href="{{route('dashboard.admins.create')}}" class="btn btn-primary mt-2 "
-                                            >{{__('Governorates.create')}}</a>
-                                        </div>
-                                        live search --}}
-                                        <div class="col-md-6 mt-2">
-                                            <input id="search_value" class="form-control" type="text" name="search"
-                                                   placeholder="Search for ...">
-                                        </div>
-                                        {{--live search --}}
-                                    </div>
-
-                                    {{--end modal--}}
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -89,7 +73,7 @@
                                     <div class="table-responsive text-center">
                                         <div class="ajax_table">
 
-                                            <table class="table mb-0">
+                                            <table class="table mb-0"  id="data_table_yajra">
                                                 <thead>
                                                 <tr class="border-bottom-active border-custom-color">
                                                     <th>#</th>
@@ -117,7 +101,7 @@
 
                                                         </td>
                                                         <td class="text-center">
-                                                            <div class="badge badge-pill badge-border border-warning warning ">{{$governorate->cities->count() }}</div>
+                                                            <div class="badge badge-pill badge-border border-warning warning ">{{$governorate->cities_count }}</div>
                                                         </td>
                                                         <td class="text-center">
                                                             <div
@@ -282,6 +266,8 @@
             })
         })
         /* end update shipping price */
+
+        $('#data_table_yajra').DataTable();
     </script>
 @endpush
 

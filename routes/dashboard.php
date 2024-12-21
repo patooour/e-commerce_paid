@@ -4,6 +4,8 @@ use App\Http\Controllers\Dashboard\Auth\forgetPassword\ForgetPasswordController;
 use App\Http\Controllers\Dashboard\Auth\forgetPassword\ResetPasswordController;
 use App\Http\Controllers\Dashboard\Auth\LoginController;
 use App\Http\Controllers\Dashboard\Home\AdminController;
+use App\Http\Controllers\Dashboard\Home\BrandController;
+use App\Http\Controllers\Dashboard\Home\CategoryController;
 use App\Http\Controllers\dashboard\Home\HomeController;
 use App\Http\Controllers\Dashboard\Home\RoleController;
 use App\Http\Controllers\Dashboard\Home\WorldController;
@@ -56,6 +58,22 @@ Route::group(
 
                 });
                 ############################## end Admins Management  ############################################
+
+                ############################## categories Management  ############################################
+                Route::group(['middleware'=>'can:categories'], function (){
+                    Route::resource('categories' ,CategoryController::class);
+                    Route::get('categories/{catID}/status' ,[CategoryController::class,'changeStatus'])->name('categories.status');
+                    Route::get('categories-getAll' ,[CategoryController::class , 'getAll'])->name('categories.getAll');
+
+                });
+                ############################## end categories Management  ############################################
+
+                ############################## brands Management  ############################################
+                Route::group(['middleware'=>'can:brands'], function (){
+                    Route::resource('brands' ,BrandController::class);
+
+                });
+                ############################## end brands Management  ############################################
 
                 ############################## Start World [country - city - governorate] Management  ############################################
                 Route::group(['middleware'=>'can:world'], function (){

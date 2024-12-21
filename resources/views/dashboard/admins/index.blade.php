@@ -107,16 +107,18 @@
                                                     <td>
                                                         <a class="btn btn-sm btn-primary"
                                                            href="{{route('dashboard.admins.edit',$admin->id)}}"
-                                                           title="Admin Edit"><i class="la la-edit"></i></a>
+                                                           title="Admin Edit"><i class="la la-edit"></i>
+                                                        </a>
 
                                                         <a class="btn btn-sm btn-warning"
                                                            href="{{route('dashboard.admins.status',$admin->id)}}"
                                                            title="{{$admin->name}} Change status">
-                                                            <i class="la @if($admin->status == 'Active') la-toggle-on @else la-toggle-off @endif"></i></a>
+                                                            <i class="la @if($admin->status == 'Active') la-toggle-on @else la-toggle-off @endif"></i>
+                                                        </a>
 
                                                         <a href="javascript:void(0)" onclick="if(confirm('do you want to delete Admin')) {
-                                                            document.getElementById('destroy_admin_{{$admin->id}}').submit() } return false
-                                                            " class=" btn btn-sm btn-danger" title="delete {{$admin->name}}"><i class="la la-trash"></i>
+                                                            document.getElementById('destroy_admin_{{$admin->id}}').submit() } return false"
+                                                           class=" btn btn-sm btn-danger" title="delete {{$admin->name}}"><i class="la la-trash"></i>
                                                         </a>
 
                                                     </td>
@@ -127,7 +129,6 @@
                                                         @method('DELETE')
                                                     </form>
                                                     {{-- end form for destroy --}}
-
                                                 </tr>
 
                                             @endforeach

@@ -21,7 +21,27 @@
 <!-- END MODERN JS-->
 <!-- BEGIN PAGE LEVEL JS-->
 
+{{--start yjara datatable--}}
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js" ></script>
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.min.js" ></script>
 
+<script src="https://cdn.datatables.net/buttons/3.2.0/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.2.0/js/buttons.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/select/2.1.0/js/dataTables.select.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/3.0.3/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.2.0/js/buttons.colVis.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.2.0/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.2.0/js/buttons.print.min.js"></script>
+<script src="{{asset('vendor/datatable/excel/jszip.min.js')}}"></script>
+<script src="{{asset('vendor/datatable/pdf/pdfmake.min.js')}}"></script>
+<script src="{{asset('vendor/datatable/pdf/vfs_fonts.js')}}"></script>
+
+{{--end yjara datatable--}}
+
+{{--start sweat alert--}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+{{--end sweat alert--}}
 
 <script src="{{asset("assets") }}/js/scripts/pages/dashboard-sales.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL JS-->

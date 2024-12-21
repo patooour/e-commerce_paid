@@ -10,8 +10,13 @@
 <link rel="shortcut icon" type="image/x-icon" href="{{asset("assets") }}/images/ico/favicon.ico">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700"
       rel="stylesheet">
-<link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css"
-      rel="stylesheet">
+<link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css" rel="stylesheet">
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/3.2.0/css/buttons.bootstrap5.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/3.0.3/css/responsive.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/2.1.0/css/select.dataTables.min.css">
 
 @if(config('app.locale') == 'ar')
     <!-- BEGIN VENDOR CSS-->
@@ -32,6 +37,12 @@
     <!-- BEGIN Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset("assets") }}/css/style-rtl.css">
     <!-- END Custom CSS-->
+
+    <!-- yajra table -->
+
+
+    <!-- end yajra table -->
+
 @else
 
     <!-- BEGIN VENDOR CSS-->

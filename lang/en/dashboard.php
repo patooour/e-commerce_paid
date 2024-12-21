@@ -93,4 +93,11 @@ return [
     'roles_table'=>' Roles Table',
     'select_shipping_price'=>'Select Shipping Price',
 
+    'categories'=>'categories',
+    'brands'=>'brands',
+    'create_category'=>'create category',
+    'create_brand'=>'create brand',
+
+    'Are you sure?'=>'Are you sure?'
+
 ];

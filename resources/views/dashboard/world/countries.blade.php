@@ -57,12 +57,7 @@
                                             <a href="{{route('dashboard.admins.create')}}" class="btn btn-primary mt-2 "
                                             >{{__('admins.create')}}</a>
                                         </div>
-                                        {{--live search --}}
-                                        <div class="col-md-6 mt-2">
-                                            <input id="search_value" class="form-control" type="text" name="search"
-                                                   placeholder="Search for ...">
-                                        </div>
-                                        {{--live search --}}
+
                                     </div>
 
                                     {{--end modal--}}
@@ -87,7 +82,7 @@
                                     <div class="table-responsive text-center">
                                         <div class="ajax_table">
 
-                                            <table class="table mb-0">
+                                            <table class="table mb-0" id="data_table_yajra">
                                                 <thead>
                                                 <tr class="border-bottom-active border-custom-color">
                                                     <th>#</th>
@@ -111,11 +106,11 @@
                                                         <td class="text-bold-600">{{$country->phone_code }} </td>
                                                         <td class="text-center">
                                                             <div
-                                                                class="badge badge-pill badge-border border-warning warning ">{{$country->governorates->count() }}</div>
+                                                                class="badge badge-pill badge-border border-warning warning ">{{$country->governorates_count }}</div>
                                                         </td>
                                                         <td class="text-center">
                                                             <div
-                                                                class="badge badge-pill badge-border border-primary primary">{{$country->users->count() }}</div>
+                                                                class="badge badge-pill badge-border border-primary primary">{{$country->users_count }}</div>
                                                         </td>
                                                         <td>
                                                             <div id="status_{{$country->id}}" class="badge badge-pill badge-border @if($country->is_active == 1) border-success success
@@ -129,18 +124,32 @@
                                                         </td>
 
 
-                                                        {{-- form for destroy
-                                                        <form action="{{route('dashboard.admins.destroy',$country->id)}}"
+{{-- form for destroy
+                                                       <form action="{{route('dashboard.admins.destroy',$country->id)}}"
                                                               id="destroy_admin_{{$country->id}}" method="post">
                                                             @csrf
                                                             @method('DELETE')
                                                         </form>
-                                                        {{-- end form for destroy --}}
+                                                        --}}
+ {{--end form for destroy --}}
+
 
                                                     </tr>
 
                                                 @endforeach
+
                                                 </tbody>
+                                                <tfoot>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>{{__('dashboard.name_country')}}</th>
+                                                    <th>{{__('dashboard.phone_code')}}</th>
+                                                    <th>{{__('dashboard.num_of_governorate')}}</th>
+                                                    <th>{{__('dashboard.num_of_user')}}</th>
+                                                    <th>{{__('dashboard.status')}}</th>
+                                                    <th>{{__('dashboard.manage_status')}}</th>
+                                                </tr>
+                                                </tfoot>
                                             </table>
                                         </div>
                                     </div>
@@ -158,8 +167,8 @@
 @endsection
 
 @push('js')
-    {{--switch and select --}}
-    <!-- BEGIN PAGE VENDOR JS-->
+    {{--switch and select--}}
+    <!-- BEGIN PAGE VENDOR JS -->
     <script src="{{asset("assets")}}/vendors/js/forms/icheck/icheck.min.js" type="text/javascript"></script>
     <script src="{{asset("assets")}}/vendors/js/forms/toggle/bootstrap-checkbox.min.js"
             type="text/javascript"></script>
@@ -232,5 +241,8 @@
                 },
             })
         })
+
+
     </script>
+
 @endpush

@@ -14,7 +14,6 @@ class WorldController extends Controller
     {
         $this->worldService = $worldService;
     }
-
     public function getCountryById($id)
     {
         $country =  $this->worldService->getCountryById($id);
@@ -37,6 +36,7 @@ class WorldController extends Controller
         $countries =  $this->worldService->getAllCountries();
         return view('dashboard.world.countries', compact('countries'));
     }
+
 
     public function getAllGovernorates($countryId)
     {

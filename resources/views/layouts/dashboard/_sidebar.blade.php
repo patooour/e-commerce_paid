@@ -1,6 +1,36 @@
 <div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow" data-scroll-to-active="true">
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+            {{--start categories--}}
+            @can('categories')
+                <li class=" nav-item"><a href="#"><i class="la la-columns"></i>
+                        <span class="menu-title" data-i18n="nav.page_layouts.main">{{__('dashboard.categories')}}<span class="badge badge badge-info badge-pill float-right mr-2">3</span></span>
+                    </a>
+                    <ul class="menu-content">
+                        <li><a class="menu-item" href="{{route('dashboard.categories.index')}}" data-i18n="nav.page_layouts.1_column">{{__('dashboard.categories')}}</a>
+                        </li>
+                        <li><a class="menu-item" href="{{route('dashboard.categories.create')}}" data-i18n="nav.page_layouts.2_columns">{{__('dashboard.create_category')}}</a>
+                        </li>
+
+                    </ul>
+                </li>
+            @endcan
+            {{--end categories--}}
+            {{--start brands--}}
+            @can('brands')
+                <li class=" nav-item"><a href="#"><i class="la la-columns"></i>
+                        <span class="menu-title" data-i18n="nav.page_layouts.main">{{__('dashboard.brands')}}<span class="badge badge badge-info badge-pill float-right mr-2">3</span></span>
+                    </a>
+                    <ul class="menu-content">
+                        <li><a class="menu-item" href="{{route('dashboard.brands.index')}}" data-i18n="nav.page_layouts.1_column">{{__('dashboard.brands')}}</a>
+                        </li>
+                        <li><a class="menu-item" href="{{route('dashboard.brands.create')}}" data-i18n="nav.page_layouts.2_columns">{{__('dashboard.create_brand')}}</a>
+                        </li>
+
+                    </ul>
+                </li>
+            @endcan
+            {{--end brands--}}
             <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title" data-i18n="nav.dash.main">Dashboard</span><span class="badge badge badge-info badge-pill float-right mr-2">3</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="dashboard-ecommerce.html" data-i18n="nav.dash.ecommerce">eCommerce</a>
