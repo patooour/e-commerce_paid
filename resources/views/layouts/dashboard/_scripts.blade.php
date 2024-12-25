@@ -32,9 +32,9 @@
 <script src="https://cdn.datatables.net/buttons/3.2.0/js/buttons.colVis.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/3.2.0/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/3.2.0/js/buttons.print.min.js"></script>
-<script src="{{asset('vendor/datatable/excel/jszip.min.js')}}"></script>
-<script src="{{asset('vendor/datatable/pdf/pdfmake.min.js')}}"></script>
-<script src="{{asset('vendor/datatable/pdf/vfs_fonts.js')}}"></script>
+<script src="{{asset('plugin/datatable/excel/jszip.min.js')}}"></script>
+<script src="{{asset('plugin/datatable/pdf/pdfmake.min.js')}}"></script>
+<script src="{{asset('plugin/datatable/pdf/vfs_fonts.js')}}"></script>
 
 {{--end yjara datatable--}}
 

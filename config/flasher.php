@@ -9,11 +9,11 @@ return Configuration::from([
     'default' => 'flasher',
 
     // Path to the main PHPFlasher JavaScript file
-    'main_script' => '/vendor/flasher/flasher.min.js',
+    'main_script' => '/plugin/flasher/flasher.min.js',
 
     // List of CSS files to style your notifications
     'styles' => [
-        '/vendor/flasher/flasher.min.css',
+        '/plugin/flasher/flasher.min.css',
     ],
 
     // Set global options for all notifications (optional)

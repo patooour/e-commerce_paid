@@ -4,7 +4,7 @@ define("ace/snippets/diff",["require","exports","module"], function(require, exp
 exports.snippetText = "# DEP-3 (http://dep.debian.net/deps/dep3/) style patch header\n\
 snippet header DEP-3 style header\n\
 	Description: ${1}\n\
-	Origin: ${2:vendor|upstream|other}, ${3:url of the original patch}\n\
+	Origin: ${2:plugin|upstream|other}, ${3:url of the original patch}\n\
 	Bug: ${4:url in upstream bugtracker}\n\
 	Forwarded: ${5:no|not-needed|url}\n\
 	Author: ${6:`g:snips_author`}\n\

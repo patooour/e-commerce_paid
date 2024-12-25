@@ -71,6 +71,8 @@ Route::group(
                 ############################## brands Management  ############################################
                 Route::group(['middleware'=>'can:brands'], function (){
                     Route::resource('brands' ,BrandController::class);
+                    Route::get('brands/{catID}/status' ,[BrandController::class,'changeStatus'])->name('brands.status');
+                    Route::get('brands-getAll' ,[BrandController::class , 'getAll'])->name('brands.getAll');
 
                 });
                 ############################## end brands Management  ############################################

@@ -220,14 +220,30 @@
                 type: "GET",
                 url: url,
                 success: function (response) {
-                    if (response.success) {
-                        let newStatus = response.data.status;
-                        $(`.status-label[data-id="${response.data.id}"]`).text(newStatus);
+                    if (response.status == 'success') {
 
+                        $('.tostar-success').text(response.msg).show();
 
-                    } else {
-
+                        if (response.data.status === 1) {
+                            $('#status_' + response.data.id)
+                                .empty()
+                                .text('{{__('dashboard.active')}}')
+                                .removeClass('border-danger danger')
+                                .addClass('border-success success');
+                        } else if (response.data.is_active === 0) {
+                            $('#status_' + response.data.id)
+                                .empty()
+                                .text('{{__('dashboard.inactive')}}')
+                                .removeClass('border-success success')
+                                .addClass('border-danger danger');
+                        }
+                    }else{
+                        $('.tostar-error').text(response.msg).show();
                     }
+                    setTimeout(function (){
+                        $('.tostar-success').hide();
+                    },3000);
+
                 },
             })
         })

@@ -196,7 +196,7 @@ var StylusHighlightRules = function() {
         }, {
             token : ["punctuation", "entity.other.attribute-name.pseudo-class.css"],
             regex : CssHighlightRules.pseudoClasses
-        }, 
+        },
         {
             token: ["entity.name.tag.stylus"],
             regex: "(?:\\b)(a|abbr|acronym|address|area|article|aside|audio|b|base|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|eventsource|fieldset|figure|figcaption|footer|form|frame|frameset|(?:h[1-6])|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|map|mark|menu|meta|meter|nav|noframes|noscript|object|ol|optgroup|option|output|p|param|pre|progress|q|samp|script|section|select|small|span|strike|strong|style|sub|summary|sup|table|tbody|td|textarea|tfoot|th|thead|time|title|tr|tt|ul|var|video)(?:\\b)"
@@ -204,17 +204,17 @@ var StylusHighlightRules = function() {
         {
             token : "constant.numeric",  // hex6 color
             regex : "#[a-f0-9]{6}"
-        }, 
+        },
         {
             token : "constant.numeric", // hex3 color
             regex : "#[a-f0-9]{3}"
-        }, 
+        },
         {
             token: ["punctuation.definition.entity.stylus", "entity.other.attribute-name.id.stylus"],
             regex: "(#)([a-zA-Z][a-zA-Z0-9_-]*)"
         },
         {
-            token: "meta.vendor-prefix.stylus",
+            token: "meta.plugin-prefix.stylus",
             regex: "-webkit-|-moz\\-|-ms-|-o-"
         },
         {
@@ -237,15 +237,15 @@ var StylusHighlightRules = function() {
             token : "string",
             regex : '"(?=.)',
             next  : "qqstring"
-        }, 
+        },
         {
             token : "constant.numeric",
             regex : CssHighlightRules.numRe
-        }, 
+        },
         {
             token : "keyword",
             regex : "(?:ch|cm|deg|em|ex|fr|gd|grad|Hz|in|kHz|mm|ms|pc|pt|px|rad|rem|s|turn|vh|vm|vw|%)\\b"
-        }, 
+        },
         {
             token : keywordMapper,
             regex : "\\-?[a-zA-Z_][a-zA-Z0-9_\\-]*"
@@ -265,12 +265,12 @@ var StylusHighlightRules = function() {
         {
             token : "string",
             regex : '[^"\\\\]+'
-        }, 
+        },
         {
             token : "string",
             regex : "\\\\$",
             next  : "qqstring"
-        }, 
+        },
         {
             token : "string",
             regex : '"|$',
@@ -281,12 +281,12 @@ var StylusHighlightRules = function() {
         {
             token : "string",
             regex : "[^'\\\\]+"
-        }, 
+        },
         {
             token : "string",
             regex : "\\\\$",
             next  : "qstring"
-        }, 
+        },
         {
             token : "string",
             regex : "'|$",
@@ -406,7 +406,7 @@ oop.inherits(Mode, TextMode);
 (function() {
     this.lineCommentStart = "//";
     this.blockComment = {start: "/*", end: "*/"};
-    
+
     this.$id = "ace/mode/stylus";
 }).call(Mode.prototype);
 

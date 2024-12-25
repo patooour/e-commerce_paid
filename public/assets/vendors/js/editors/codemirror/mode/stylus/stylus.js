@@ -83,7 +83,7 @@
       }
       // Vendor prefixes
       if (stream.match(vendorPrefixesRegexp)) {
-        return ["meta", "vendor-prefixes"];
+        return ["meta", "plugin-prefixes"];
       }
       // Numbers
       if (stream.match(/^-?[0-9]?\.?[0-9]/)) {
@@ -370,7 +370,7 @@
         return pushContext(state, stream, "parens");
       }
 
-      if (type == "vendor-prefixes") {
+      if (type == "plugin-prefixes") {
         return pushContext(state, stream, "vendorPrefixes");
       }
       if (type == "word") {
