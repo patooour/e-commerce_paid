@@ -16,7 +16,11 @@ return new class extends Migration
             $table->string('code')->unique();
             $table->decimal('discount')->nullable();
             $table->integer('discount_percentage')->nullable();
-            $table->date('expire_at');
+/*            $table->date('expire_at');*/
+
+            $table->date('start_at')->nullable();
+            $table->date('end_at')->nullable();
+
             $table->integer('limit')->nullable();
             $table->integer('time_used')->default(0);
             $table->boolean('is_active')->default(1);

@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard\Auth\LoginController;
 use App\Http\Controllers\Dashboard\Home\AdminController;
 use App\Http\Controllers\Dashboard\Home\BrandController;
 use App\Http\Controllers\Dashboard\Home\CategoryController;
+use App\Http\Controllers\Dashboard\Home\CouponController;
 use App\Http\Controllers\dashboard\Home\HomeController;
 use App\Http\Controllers\Dashboard\Home\RoleController;
 use App\Http\Controllers\Dashboard\Home\WorldController;
@@ -76,6 +77,15 @@ Route::group(
 
                 });
                 ############################## end brands Management  ############################################
+
+                ############################## coupons Management  ############################################
+                Route::group(['middleware'=>'can:coupons'], function (){
+                    Route::resource('coupons' ,CouponController::class);
+                    Route::get('coupons-getAll' ,[CouponController::class , 'getAll'])->name('coupons.getAll');
+
+                });
+                ############################## end brands Management  ############################################
+
 
                 ############################## Start World [country - city - governorate] Management  ############################################
                 Route::group(['middleware'=>'can:world'], function (){

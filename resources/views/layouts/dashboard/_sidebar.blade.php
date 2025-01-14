@@ -75,6 +75,22 @@
                 </li>
             @endcan
             {{--end brands--}}
+            {{--start coupons--}}
+            @can('coupons')
+                <li class=" nav-item"><a href="#"><i class="la la-columns"></i>
+                        <span class="menu-title" data-i18n="nav.page_layouts.main">{{__('dashboard.coupons')}}<span class="badge badge badge-info badge-pill float-right mr-2">20</span></span>
+                    </a>
+                    <ul class="menu-content">
+                        <li>
+                            <a class="menu-item" href="{{route('dashboard.coupons.index')}}" data-i18n="nav.page_layouts.1_column">{{__('dashboard.coupons')}}
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </li>
+            @endcan
+            {{--end coupons--}}
             {{--start admins--}}
             @can('admins')
                 <li class=" nav-item"><a href="#"><i class="la la-columns"></i>

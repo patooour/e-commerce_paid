@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Coupon;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,7 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-       // User::factory(10)->create();
+        /*Coupon::factory(100)->create();*/
 
        /* User::factory()->create([
             'name' => 'Test User',
@@ -22,13 +23,15 @@ class DatabaseSeeder extends Seeder
 
         $this->call(
             [
-               RoleSeeder::class,
+              /*  RoleSeeder::class,
                 AdminSeeder::class ,
                 CountrySeeder::class ,
                 GovernorateSeeder::class ,
                 CitySeeder::class ,
                 CategorySeeder::class ,
-                BrandSeeder::class ,
+                BrandSeeder::class ,*/
+                CouponSeeder::class ,
+
             ]);
 
     }
